@@ -46,10 +46,10 @@ b. Generate plots summarizing the coverage statistics.
 a. Identify PMPs with high specificity for tissue differentiation, minimizing false
 positives for Tissue #1 while allowing some false negatives. Use statistical or
 machine learning approaches to assign confidence (e.g., p-values) to each PMP
-(15 points).
+(15 s).
 b. Calculate the mean variant read fraction (VRF) for each PMP in both tissues (5
-points).
-3. Address the following questions (20 points):
+-s).
+3. Address the following questions:
 a. How does sequencing depth affect specificity confidence?
 b. For the top 10 PMPs, estimate the threshold of reads required to confidently
 call Tissue #2 at a sequencing depth of 1 million reads. 
@@ -64,12 +64,12 @@ Sub-tasks:1 & 2
 Quality Control:
 a. Perform quality checks using tools like FastQC and summarize quality
 metrics (e.g., sequence counts, per-base quality, read duplication levels).
-(10 points)
+
 Alignment and Mutation Calling:
 Confidential and Proprietary information of Pupil Bio
 2Bioinformatics coding Challenge | rev A
 a. Align the samples to the human genome using tools like Bowtie2 or BWA.
-(10 points).
+
 b. Identify somatic mutations present in the cancer sample but absent in the
 normal tissue.
 i. Benchmark Software: Use established tools such as Mutect2,
