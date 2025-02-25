@@ -1,7 +1,5 @@
 # Pupil-Bio
 Data Analysis and Statistics & amp; NGS Alignment and Mutation Calling
-The present test comprises two challenges designed to evaluate candidates’ technical and
-analytical skills:
 1. Data Analysis and Statistics: Assessing the ability to analyze and interpret complex data,
 particularly phased methylation patterns.
 2. NGS Alignment and Mutation Calling: Evaluating proficiency in processing raw
