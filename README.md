@@ -1,5 +1,5 @@
 # Pupil-Bio
-Data Analysis and Statistics &amp; NGS Alignment and Mutation Calling
+Data Analysis and Statistics & amp; NGS Alignment and Mutation Calling
 The present test comprises two challenges designed to evaluate candidates’ technical and
 analytical skills:
 1. Data Analysis and Statistics: Assessing the ability to analyze and interpret complex data,
@@ -8,7 +8,7 @@ particularly phased methylation patterns.
 sequencing data, aligning reads to a reference genome, and identifying somatic
 mutations.
 ______________________________________________________________________________
-Task 1: Data Handling and Statistical Analysis
+Data Handling and Statistical Analysis
 Objective: Assess candidates’ ability to handle complex data and apply statistical methods
 effectively.
 Background: CpG methylation is an epigenetic marker that varies across tissue types.
@@ -56,7 +56,7 @@ call Tissue #2 at a sequencing depth of 1 million reads.
 c. Validate the hypothesis by comparing the specificity of the top 10 PMPs
 against individual CpG sites.
 ______________________________________________________________________________
-Task 2: NGS Data Analysis
+NGS Data Analysis
 Objective: Evaluate candidates’ ability to process and analyze raw sequencing data.
 Dataset: The dataset (Link to Data) consists of NGS samples in FASTQ format, including one
 sample from normal tissue and one from cancer tissue.
