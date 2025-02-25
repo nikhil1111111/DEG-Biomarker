@@ -7,8 +7,7 @@ sequencing data, aligning reads to a reference genome, and identifying somatic
 mutations.
 ______________________________________________________________________________
 Data Handling and Statistical Analysis
-Objective: Assess candidates’ ability to handle complex data and apply statistical methods
-effectively.
+
 Background: CpG methylation is an epigenetic marker that varies across tissue types.
 However, the methylation status of a single CpG site is unreliable as a biomarker due to
 errors introduced by bisulfite sequencing, sampling techniques, and biological variability.
@@ -54,8 +53,7 @@ call Tissue #2 at a sequencing depth of 1 million reads.
 c. Validate the hypothesis by comparing the specificity of the top 10 PMPs
 against individual CpG sites.
 ______________________________________________________________________________
-NGS Data Analysis
-Objective: Evaluate candidates’ ability to process and analyze raw sequencing data.
+NGS Data Analysis\n
 Dataset: The dataset (Link to Data) consists of NGS samples in FASTQ format, including one
 sample from normal tissue and one from cancer tissue.
 Sub-tasks:1 & 2 
