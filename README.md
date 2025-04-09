@@ -1,82 +1,65 @@
-# Pupil-Bio
-Data Analysis and Statistics & amp; NGS Alignment and Mutation Calling
-1. Data Analysis and Statistics: Assessing the ability to analyze and interpret complex data,
-particularly phased methylation patterns.
-2. NGS Alignment and Mutation Calling: Evaluating proficiency in processing raw
-sequencing data, aligning reads to a reference genome, and identifying somatic
-mutations.
-______________________________________________________________________________
-Data Handling and Statistical Analysis
+# 🧬 Multi-Cancer Gene Expression Analysis for Biomarker Discovery and Classification
 
-Background: CpG methylation is an epigenetic marker that varies across tissue types.
-However, the methylation status of a single CpG site is unreliable as a biomarker due to
-errors introduced by bisulfite sequencing, sampling techniques, and biological variability.
-Definition: Phased Methylation Pattern (PMP) is a unique set of coordinates that includes
-the DNA strand (‘f’ for forward (+) or ‘r’ for reverse (-)), the relative positions of three CpG
-sites on the same strand (e.g., x:y:z), and their methylation status (e.g., ‘000’ for all
-unmethylated or ‘111’ for all methylated). It represents a combined epigenetic signature
-across these CpG sites.
-Hypothesis: Phased methylation patterns (PMPs) can act as reliable biomarkers to
-differentiate tissue types, providing higher specificity compared to individual CpG sites.
-Dataset: The dataset (Link to Data) summarizes phased methylation patterns from NGS
-results across two tissues. Key columns include:
-•
-Strand: Indicates the DNA strand (‘f’ or ‘r’).
-Confidential and Proprietary information of Pupil Bio
-1Bioinformatics coding Challenge | rev A
-•
-•
-•
-•
-•
-CpG Coordinates: Relative positions of three CpG sites (x:y:z).
-Methylation Status: Eight possible patterns (‘000’ to ‘111’).
-Sample ID: Unique identifier for each sample.
-Replicate: Indicates technical replicates.
-Tissue: Tissue type (Tissue #1 or Tissue #2).
-Sub-tasks:
-1. Coverage Analysis:
-a. Calculate the median and coefficient of variation (CV) for single CpG coverage
-in each tissue.
-b. Generate plots summarizing the coverage statistics.
-2. Biomarker Identification:
-a. Identify PMPs with high specificity for tissue differentiation, minimizing false
-positives for Tissue #1 while allowing some false negatives. Use statistical or
-machine learning approaches to assign confidence (e.g., p-values) to each PMP
-(15 s).
-b. Calculate the mean variant read fraction (VRF) for each PMP in both tissues (5
--s).
-3. Address the following questions:
-a. How does sequencing depth affect specificity confidence?
-b. For the top 10 PMPs, estimate the threshold of reads required to confidently
-call Tissue #2 at a sequencing depth of 1 million reads. 
-c. Validate the hypothesis by comparing the specificity of the top 10 PMPs
-against individual CpG sites.
-______________________________________________________________________________
-NGS Data Analysis\n
-Dataset: The dataset (Link to Data) consists of NGS samples in FASTQ format, including one
-sample from normal tissue and one from cancer tissue.
-Sub-tasks:1 & 2 
-Quality Control:
-a. Perform quality checks using tools like FastQC and summarize quality
-metrics (e.g., sequence counts, per-base quality, read duplication levels).
+This project performs a comprehensive analysis of gene expression profiles across multiple cancer types. It involves differential gene expression analysis, dimensionality reduction, hierarchical clustering, machine learning classification, and gene-gene co-expression network visualization.
 
-Alignment and Mutation Calling:
-Confidential and Proprietary information of Pupil Bio
-2Bioinformatics coding Challenge | rev A
-a. Align the samples to the human genome using tools like Bowtie2 or BWA.
+## 📁 Dataset
 
-b. Identify somatic mutations present in the cancer sample but absent in the
-normal tissue.
-i. Benchmark Software: Use established tools such as Mutect2,
-Strelka2, or VarScan2 for somatic mutation identification
-and background mutation estimation. 
-ii. Custom Code Development: Write your own scripts,
-leveraging tools like Samtools, bcftools, or Python/R
-libraries, to perform mutation detection and calculate the
-required metrics.
-c. Use the normal tissue to calculate the median background mutation level.
-The background mutation level accounts for sequencing errors or biases
-that can mimic true mutations. Determine how many reads per million are
-required to confidently call a given mutation. 
-________________________________________________________________________________________________________________________
+- The dataset used is a `.rds` file containing gene expression values for **9,263 samples** across **24 cancer types**, with expression levels for **716 genes**.
+- Each sample includes metadata such as:
+  - `Sample` — Unique sample identifier
+  - `Cancertype` — Type of cancer (e.g., BRCA, LUAD, GBM)
+  - Gene expression values as numerical features
+
+## 🧪 Analyses Performed
+
+### 1. **Exploratory Data Analysis**
+- Dataset summary and structure inspection
+- Count of samples per cancer type
+- Mean and standard deviation of gene expression levels
+- Identification of top 5 most variable genes
+
+### 2. **Differential Gene Expression (DGE) Analysis**
+- Performed a **t-test** between selected cancer types (e.g., BRCA vs LUAD)
+- Identified top 10 differentially expressed genes based on p-values
+- Visualized with a heatmap
+
+### 3. **Unsupervised Learning**
+- **Hierarchical Clustering** using Ward’s method
+- **t-SNE** for nonlinear dimensionality reduction
+- **PCA** for principal component visualization
+
+### 4. **Supervised Classification**
+- Trained a **Random Forest Classifier** to predict cancer type from gene expression profiles
+- Evaluated using:
+  - Accuracy: `92.17%`
+  - Precision, Recall, F1-Score
+- Extracted top predictive genes based on feature importance
+
+### 5. **Gene-Gene Co-expression Network**
+- Calculated correlation matrix for the top 100 variable genes
+- Visualized co-expression relationships using a heatmap
+
+## 📊 Key Results
+
+- **Top 10 Differentially Expressed Genes** between BRCA and LUAD:
+  - `PITPNM1`, `PPP4R1`, `MVP`, `AR`, `SUPT7L`, etc.
+- **Top Predictive Genes** (from Random Forest):
+  - `ESR1`, `TP63`, `PPARG`, `AR`, `CDK2`, etc.
+- **Highest Variability Genes**:
+  - `UBB`, `HIST1H1C`, `UBC`, `PFN1`, `DAXX`
+
+## 🔧 Tools & Libraries Used
+
+- **Python Libraries**: `pandas`, `numpy`, `pyreadr`, `matplotlib`, `seaborn`, `scipy`, `sklearn`
+- **Statistical Tests**: t-test (scipy)
+- **ML Models**: Random Forest Classifier
+- **Dimensionality Reduction**: PCA, t-SNE
+- **Visualization**: Heatmaps, Scatter plots, Dendrograms
+
+## 📌 How to Run
+
+1. Open the notebook in **Google Colab**
+2. Upload the `.rds` dataset file
+3. Install dependencies if needed:
+   ```bash
+   pip install pyreadr seaborn scikit-learn
